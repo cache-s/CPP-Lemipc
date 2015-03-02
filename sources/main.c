@@ -5,13 +5,16 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:37:11 2015 Jordan Chazottes
-** Last update Mon Mar  2 11:38:23 2015 Jordan Chazottes
+** Last update Mon Mar  2 11:43:07 2015 Sebastien Cache-Delanos
 */
 
-#include <unistd.h>
+#include			"lemipc.h"
 
-int main()
+int				main(int ac, char** av)
 {
-  write(1, "Hello World\n", 12);
+  (void)ac;
+  (void)av;
+
+  printf("Hello World !\n");
   return (0);
 }

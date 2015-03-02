@@ -1,11 +1,11 @@
 ##
-## Makefile for AVM in /home/chazot_a/rendu/PSU_2014_philo
+## Makefile for lemipc in /home/cache-_s/rendu/PSU_2014_lemipc
 ## 
-## Made by Jordan Chazottes
-## Login   <chazot_a@epitech.net>
+## Made by Sebastien Cache-Delanos
+## Login   <cache-_s@epitech.net>
 ## 
-## Started on  Wed Feb 25 14:44:30 2015 Jordan Chazottes
-## Last update Mon Mar  2 11:36:54 2015 Jordan Chazottes
+## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
+## Last update Mon Mar  2 11:40:23 2015 Sebastien Cache-Delanos
 ##
 
 NAME	= lemipc
