@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 17:18:34 2015 Jordan Chazottes
+** Last update Mon Mar  2 19:04:50 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -20,11 +20,23 @@
 # include			<sys/types.h>
 # include			<sys/shm.h>
 
+/* DEFINES */
+
+# define			X	50
+# define			Y	100
+
+/* STRUCTURE */
+
+typedef	struct			s_struct
+{
+  int				map[X][Y];
+}				t_struct;
+
 /* PROTOTYPES */
 
 int				main(int, char**);
 int				checkNb(char*);
 int				start(int);
-void				showMap(int **);
+void				showMap(t_struct*);
 
 #endif				/*LEMIPC_H_*/

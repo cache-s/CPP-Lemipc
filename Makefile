@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Mon Mar  2 16:56:58 2015 Jordan Chazottes
+## Last update Mon Mar  2 18:21:16 2015 Sebastien Cache-Delanos
 ##
 
 NAME	= lemipc
@@ -17,7 +17,7 @@ SRCS	= ./sources/main.c			\
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS	= -W -Wall -Wextra -Werror -I ./includes
+CFLAGS	= -g -W -Wall -Wextra -Werror -I ./includes
 
 CC	= gcc
 
