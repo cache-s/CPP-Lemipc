@@ -5,16 +5,22 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:37:11 2015 Jordan Chazottes
-** Last update Mon Mar  2 11:43:07 2015 Sebastien Cache-Delanos
+** Last update Mon Mar  2 12:15:15 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
 int				main(int ac, char** av)
 {
-  (void)ac;
-  (void)av;
+  int				teams;
 
-  printf("Hello World !\n");
-  return (0);
+  teams = 2;
+  if (ac == 1)
+    return (start(teams));
+  if (ac == 2)
+    if (checkNb(av[1]) == 0 && (teams = atoi(av[1])) > 2)
+      return (start(teams));
+  printf("Usage : ./lemipc [TEAMS]\n");
+  printf("[TEAMS] Must be a valid number greater than 1\n");
+  return (-1);
 }
