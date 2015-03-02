@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 19:04:50 2015 Sebastien Cache-Delanos
+** Last update Mon Mar  2 19:20:02 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -29,7 +29,7 @@
 
 typedef	struct			s_struct
 {
-  int				map[X][Y];
+  char				map[X][Y];
 }				t_struct;
 
 /* PROTOTYPES */

@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 19:04:15 2015 Sebastien Cache-Delanos
+** Last update Mon Mar  2 19:19:52 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -28,7 +28,7 @@ int				start(int team)
     {
       for (i = 0; i < X; ++i)
 	for (j = 0; j < Y; ++j)
-	  s.map[i][j] = 0;
+	  s.map[i][j] = '.';
       shm_id = shmget(key, sizeof(s), IPC_CREAT | SHM_R  | SHM_W);
       printf("Created shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);

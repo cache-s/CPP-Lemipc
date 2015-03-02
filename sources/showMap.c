@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 16:54:39 2015 Jordan Chazottes
-** Last update Mon Mar  2 19:04:32 2015 Sebastien Cache-Delanos
+** Last update Mon Mar  2 19:20:28 2015 Sebastien Cache-Delanos
 */
 
 #include	"lemipc.h"
@@ -21,10 +21,10 @@ void		showMap(t_struct *s)
       j = 0;
       while (j < Y)
 	{
-	  printf("|%d", s->map[i][j]);
+	  printf("%c", s->map[i][j]);
 	  ++j;
 	}
-      printf("|\n");
+      printf("\n");
       ++i;
     }
 }
