@@ -5,10 +5,16 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 17:18:21 2015 Jordan Chazottes
+** Last update Mon Mar  2 18:43:16 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
+
+/* typedef struct tmp */
+/* { */
+/*   int	map[250][250]; */
+/* }		tmp; */
+
 
 int				start(int team)
 {
@@ -18,24 +24,25 @@ int				start(int team)
   void		*addr;
 
   (void)team;
-  key = ftok("_KEY", 0);
+  key = ftok("./", 0);
   printf("Key = %d\n", key);
 
   if ((shm_id = shmget(key, 42, SHM_R  | SHM_W)) == -1)
     { /* Init */
       memset(map, 0, sizeof(map));
-      shm_id = shmget(key, 42, IPC_CREAT | SHM_R  | SHM_W);
+      shm_id = shmget(key, sizeof(map), IPC_CREAT | SHM_R  | SHM_W);
       printf("Created shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);
+      printf("TMP\n");
       memcpy(addr, map, sizeof(map));
-      //      (int**)addr = map;
+      printf("TMP2\n");
     }
   else
     { /* Init done */
       printf("Using shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);
-      showMap((int**)addr);
       shmctl(shm_id, IPC_RMID, NULL);
+      /*showMap((int**)addr);*/
     }
   return (0);
 }
