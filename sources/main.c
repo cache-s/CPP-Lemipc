@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:37:11 2015 Jordan Chazottes
-** Last update Mon Mar  2 16:59:34 2015 Sebastien Cache-Delanos
+** Last update Mon Mar  2 17:22:02 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -22,7 +22,13 @@ int				main(int ac, char** av)
   int				team;
 
   if (ac == 2)
-    if (checkNb(av[1]) == 0 && (team = atoi(av[1])) > 2)
-      return (start(team));
+    {
+      if (checkNb(av[1]) == 0)
+	{
+	  team = atoi(av[1]);
+	  if (team >= 1 && team <= 5)
+	    return (start(team));
+	}
+    }
   return (usage());
 }
