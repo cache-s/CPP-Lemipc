@@ -5,22 +5,24 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:37:11 2015 Jordan Chazottes
-** Last update Mon Mar  2 12:15:15 2015 Sebastien Cache-Delanos
+** Last update Mon Mar  2 16:59:34 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
+int				usage()
+{
+  printf("Usage : ./lemipc TEAM\n");
+  printf("TEAM must be a valid number between 1 and 5 included\n");
+  return (-1);
+}
+
 int				main(int ac, char** av)
 {
-  int				teams;
+  int				team;
 
-  teams = 2;
-  if (ac == 1)
-    return (start(teams));
   if (ac == 2)
-    if (checkNb(av[1]) == 0 && (teams = atoi(av[1])) > 2)
-      return (start(teams));
-  printf("Usage : ./lemipc [TEAMS]\n");
-  printf("[TEAMS] Must be a valid number greater than 1\n");
-  return (-1);
+    if (checkNb(av[1]) == 0 && (team = atoi(av[1])) > 2)
+      return (start(team));
+  return (usage());
 }
