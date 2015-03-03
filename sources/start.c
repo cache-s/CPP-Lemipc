@@ -5,23 +5,10 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 19:32:25 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 11:06:38 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 11:13:09 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
-
-/*void				loop()
-{
-  t_player			*p;
-
-  while (p->state != DEAD || team victory)
-    {
-      //wait signal : get "mutex"
-      //on change la pos
-      //on catch les message msgq
-    }
-    //isLast() ? destroyIPCS
-}*/
 
 int				start(int team)
 {
