@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 11:35:55 2015 Jordan Chazottes
+** Last update Tue Mar  3 18:13:39 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -60,6 +60,6 @@ void				showMap(t_map*);
 void				showPlayer(t_player*);
 t_map*				initMap();
 t_player*			initPlayer(int);
-void				loop();
+void				loop(t_player*, t_map*);
 
 #endif				/*LEMIPC_H_*/

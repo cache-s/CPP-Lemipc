@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 11:05:50 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 18:10:18 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -32,7 +32,6 @@ t_map*				initMap()
       printf("Created shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);
       memcpy(addr, s.map, sizeof(s.map));
-      return (NULL);
     }
   printf("Using shm segment %d\n", shm_id);
   addr = shmat(shm_id, NULL, SHM_R | SHM_W);
