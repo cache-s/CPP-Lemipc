@@ -5,14 +5,14 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 18:10:18 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 19:43:19 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
-t_map*				initMap()
+t_battlefield*				initBattlefield()
 {
-  t_map				s;
+  t_battlefield			b;
   key_t				key;
   int				shm_id;
   void				*addr;
@@ -23,36 +23,36 @@ t_map*				initMap()
   j = 0;
   key = ftok("/dev", 0);
   printf("Key = %d\n", key);
-  if ((shm_id = shmget(key, sizeof(s), SHM_R | SHM_W)) == -1)
+  if ((shm_id = shmget(key, sizeof(b), SHM_R | SHM_W)) == -1)
     {
       for (i = 0; i < X; ++i)
 	for (j = 0; j < Y; ++j)
-	  s.map[i][j] = '.';
-      shm_id = shmget(key, sizeof(s), IPC_CREAT | SHM_R  | SHM_W);
+	  b.battlefield[i][j] = '.';
+      shm_id = shmget(key, sizeof(b), IPC_CREAT | SHM_R  | SHM_W);
       printf("Created shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);
-      memcpy(addr, s.map, sizeof(s.map));
+      memcpy(addr, b.battlefield, sizeof(b.battlefield));
     }
   printf("Using shm segment %d\n", shm_id);
   addr = shmat(shm_id, NULL, SHM_R | SHM_W);
   shmctl(shm_id, IPC_RMID, NULL);
-  return ((t_map*)addr);
+  return ((t_battlefield*)addr);
 }
 
-t_player*			initPlayer(int team)
+t_warrior*			initWarrior(int army)
 {
-  t_player			*p;
+  t_warrior			*w;
 
-  p = malloc(sizeof(*p));
-  if (p != NULL)
+  w = malloc(sizeof(*w));
+  if (w != NULL)
     {
-      p->id = 0;
-      p->state = ALIVE;
-      p->posX = 50;
-      p->posY = 50;
-      p->team = team;
+      w->id = 0;
+      w->state = ALIVE;
+      w->posX = 50;
+      w->posY = 50;
+      w->army = army;
     }
   else
-    printf("Malloc fail in initPlayer()\n");
-  return (p);
+    printf("Malloc fail in initWarrior()\n");
+  return (w);
 }

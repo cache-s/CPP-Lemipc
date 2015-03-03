@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 18:13:39 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 20:28:39 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -37,29 +37,33 @@ typedef	enum			State
 
 /* STRUCTURE */
 
-typedef	struct			s_map
+typedef	struct			s_battlefield
 {
-  char				map[X][Y];
-}				t_map;
+  char				battlefield[X][Y];
+}				t_battlefield;
 
-typedef	struct			s_player
+typedef	struct			s_warrior
 {
   int				id;
   State				state;
   int				posX;
   int				posY;
-  int				team;
-}				t_player;
+  int				army;
+}				t_warrior;
 
 /* PROTOTYPES */
 
 int				main(int, char**);
 int				checkNb(char*);
+int				checkHelp(char*);
+int				checkUsage(char*);
 int				start(int);
-void				showMap(t_map*);
-void				showPlayer(t_player*);
-t_map*				initMap();
-t_player*			initPlayer(int);
-void				loop(t_player*, t_map*);
+void				showBattlefield(t_battlefield*);
+void				showWarrior(t_warrior*);
+t_battlefield*			initBattlefield();
+t_warrior*			initWarrior(int);
+void				loop(t_battlefield*, t_warrior*);
+int				getArmy(char*);
+int				pickArmy();
 
 #endif				/*LEMIPC_H_*/

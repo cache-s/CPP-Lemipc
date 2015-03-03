@@ -5,18 +5,18 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Tue Mar  3 18:44:15 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 19:38:09 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
-void				loop(t_player *p, t_map *m)
+void				loop(t_battlefield *b, t_warrior *w)
 {
   int                           sem_id;
   struct sembuf                 sops;
   key_t                         key;
 
-  (void)m;
+  (void)b;
   key = ftok("/dev", 0);
   if ((sem_id = semget(key, 1, SHM_R | SHM_W)) == -1)
     {
@@ -25,7 +25,7 @@ void				loop(t_player *p, t_map *m)
       semctl(sem_id, 0, SETVAL, 1);
     }
   printf("Using sem %d\n", sem_id);
-  while (p->state != DEAD)
+  while (w->state != DEAD)
     {
       sops.sem_num = 0;
       sops.sem_flg = 0;
@@ -41,7 +41,7 @@ void				loop(t_player *p, t_map *m)
 }
 
 /*
-t_player                   *p; 
+t_warrior                   *p; 
 while (p->state != DEAD || team victory) 
   { 
     wait signal : get "mutex"                                                                                  
