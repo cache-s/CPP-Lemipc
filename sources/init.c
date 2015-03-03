@@ -5,19 +5,19 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 19:32:06 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 10:35:06 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
 int				initMap()
 {
-  t_struct	s;
-  key_t		key;
-  int		shm_id;
-  void		*addr;
-  int		i;
-  int		j;
+  t_map				s;
+  key_t				key;
+  int				shm_id;
+  void				*addr;
+  int				i;
+  int				j;
 
   i = 0;
   j = 0;
@@ -38,7 +38,7 @@ int				initMap()
       printf("Using shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);
       shmctl(shm_id, IPC_RMID, NULL);
-      showMap((t_struct*)addr);
+      showMap((t_map*)addr);
     }
   return (0);
 }

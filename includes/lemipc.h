@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 19:56:41 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 10:34:49 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -35,10 +35,10 @@ typedef	enum			State
 
 /* STRUCTURE */
 
-typedef	struct			s_struct
+typedef	struct			s_map
 {
   char				map[X][Y];
-}				t_struct;
+}				t_map;
 
 typedef	struct			s_player
 {
@@ -53,7 +53,7 @@ typedef	struct			s_player
 int				main(int, char**);
 int				checkNb(char*);
 int				start(int);
-void				showMap(t_struct*);
+void				showMap(t_map*);
 int				initMap();
 
 #endif				/*LEMIPC_H_*/

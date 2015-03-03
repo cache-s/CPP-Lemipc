@@ -5,12 +5,12 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 16:54:39 2015 Jordan Chazottes
-** Last update Mon Mar  2 19:20:28 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 10:35:54 2015 Sebastien Cache-Delanos
 */
 
 #include	"lemipc.h"
 
-void		showMap(t_struct *s)
+void		showMap(t_map *s)
 {
   int		i;
   int		j;
