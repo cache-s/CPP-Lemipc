@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 19:32:25 2015 Sebastien Cache-Delanos
-** Last update Mon Mar  2 20:03:08 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 10:38:44 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -25,9 +25,12 @@
 
 int				start(int team)
 {
+  t_map				*m;
   (void)team;
 
-  initMap();
+  if ((m = initMap()) == NULL)
+    return (-1);
+  showMap(m);
   //  loop();
   return (0);
 }

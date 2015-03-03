@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 10:34:49 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 10:37:56 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -54,6 +54,6 @@ int				main(int, char**);
 int				checkNb(char*);
 int				start(int);
 void				showMap(t_map*);
-int				initMap();
+t_map*				initMap();
 
 #endif				/*LEMIPC_H_*/
