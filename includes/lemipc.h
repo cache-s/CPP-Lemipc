@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 11:06:57 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 11:35:55 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -19,6 +19,8 @@
 # include			<sys/ipc.h>
 # include			<sys/types.h>
 # include			<sys/shm.h>
+# include			<sys/sem.h>
+# include			<unistd.h>
 
 /* DEFINES */
 
@@ -58,5 +60,6 @@ void				showMap(t_map*);
 void				showPlayer(t_player*);
 t_map*				initMap();
 t_player*			initPlayer(int);
+void				loop();
 
 #endif				/*LEMIPC_H_*/
