@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 10:37:56 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 11:06:57 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -42,6 +42,7 @@ typedef	struct			s_map
 
 typedef	struct			s_player
 {
+  int				id;
   State				state;
   int				posX;
   int				posY;
@@ -54,6 +55,8 @@ int				main(int, char**);
 int				checkNb(char*);
 int				start(int);
 void				showMap(t_map*);
+void				showPlayer(t_player*);
 t_map*				initMap();
+t_player*			initPlayer(int);
 
 #endif				/*LEMIPC_H_*/

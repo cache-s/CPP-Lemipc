@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 10:37:44 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 11:05:50 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -38,4 +38,22 @@ t_map*				initMap()
   addr = shmat(shm_id, NULL, SHM_R | SHM_W);
   shmctl(shm_id, IPC_RMID, NULL);
   return ((t_map*)addr);
+}
+
+t_player*			initPlayer(int team)
+{
+  t_player			*p;
+
+  p = malloc(sizeof(*p));
+  if (p != NULL)
+    {
+      p->id = 0;
+      p->state = ALIVE;
+      p->posX = 50;
+      p->posY = 50;
+      p->team = team;
+    }
+  else
+    printf("Malloc fail in initPlayer()\n");
+  return (p);
 }
