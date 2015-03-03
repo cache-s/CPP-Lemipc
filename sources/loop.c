@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Tue Mar  3 18:15:41 2015 Sebastien Cache-Delanos
+** Last update Tue Mar  3 18:44:15 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -45,8 +45,8 @@ t_player                   *p;
 while (p->state != DEAD || team victory) 
   { 
     wait signal : get "mutex"                                                                                  
-      on change la pos                                                                                           
-      on catch les message msgq                                                                                  
+      on change la pos                                          
+      on catch les message msgq                                                       
       }
 isLast() ? destroyIPCS
 */
