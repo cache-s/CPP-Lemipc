@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Wed Mar  4 09:51:20 2015 Jordan Chazottes
+** Last update Wed Mar  4 10:34:22 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -44,18 +44,9 @@ void				loop(t_battlefield *b, t_warrior *w)
       showBattlefield(b);
       showWarrior(w);
       sleep(2);
+      algo(b, w);
+      showBattlefield(b);
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
     }
 }
-
-/*
-t_warrior                   *p; 
-while (p->state != DEAD || team victory) 
-  { 
-    wait signal : get "mutex"                                                                                  
-      on change la pos                                          
-      on catch les message msgq                                                       
-      }
-isLast() ? destroyIPCS
-*/

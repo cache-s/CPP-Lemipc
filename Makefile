@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Tue Mar  3 19:11:26 2015 Sebastien Cache-Delanos
+## Last update Wed Mar  4 10:09:22 2015 Sebastien Cache-Delanos
 ##
 
 NAME	= lemipc
@@ -16,6 +16,7 @@ SRCS	= ./sources/main.c			\
 	  ./sources/init.c			\
 	  ./sources/show.c			\
 	  ./sources/args.c			\
+	  ./sources/algo.c			\
 	  ./sources/loop.c			\
 
 OBJS	= $(SRCS:.c=.o)
