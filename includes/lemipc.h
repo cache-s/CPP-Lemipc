@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 17:11:26 2015 Jordan Chazottes
+** Last update Wed Mar  4 18:08:57 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -69,5 +69,5 @@ int				getArmy(char*);
 int				pickArmy();
 void				algo(t_battlefield*, t_warrior*);
 void				move(t_battlefield**, t_warrior**);
-
+struct sembuf			*init_sembuf(struct sembuf*, int);
 #endif				/*LEMIPC_H_*/

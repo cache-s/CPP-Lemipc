@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 17:11:03 2015 Jordan Chazottes
+** Last update Wed Mar  4 18:08:50 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -96,4 +96,12 @@ t_warrior*			initWarrior(int army)
   else
     printf("Malloc fail in initWarrior()\n");
   return (w);
+}
+
+struct sembuf		*init_sembuf(struct sembuf *sops, int op)
+{
+  sops->sem_num = 0;
+  sops->sem_flg = 0;
+  sops->sem_op = op;
+  return (sops);
 }
