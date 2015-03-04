@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 11:48:23 2015 Jordan Chazottes
+** Last update Wed Mar  4 17:11:03 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -65,6 +65,9 @@ void				initWarriorPos(t_warrior **w, void *addr)
       r_y = (rand() % Y);
       if (((t_battlefield*)addr)->battlefield[r_x][r_y] != '.')
 	r_x = -1;
+      else
+	((t_battlefield*)addr)->battlefield[r_x][r_y] = (*w)->army;
+      showBattlefield((*w));
     }
   sops.sem_op = 1;
   semop((*w)->shm_id, &sops, 1);
