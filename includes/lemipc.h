@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 10:34:52 2015 Jordan Chazottes
+** Last update Wed Mar  4 10:38:43 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -67,5 +67,6 @@ void				loop(t_battlefield*, t_warrior*);
 int				getArmy(char*);
 int				pickArmy();
 void				algo(t_battlefield*, t_warrior*);
+void				move(t_battlefield**, t_warrior**);
 
 #endif				/*LEMIPC_H_*/
