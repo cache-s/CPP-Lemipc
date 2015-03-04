@@ -5,15 +5,30 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Tue Mar  3 19:08:40 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 09:09:52 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 10:01:36 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
 int				pickArmy()
 {
-  printf("la on pick l'army qui est dans le mal\n");
-  return (0);
+  t_battlefield			*b;
+  int				nb;
+  int				i;
+  int				j;
+
+  i = 0;
+  j = 1;
+  if ((b = initBattlefield()) == NULL)
+    return (-1);
+  nb = b->recap[0];
+  while (++i < 5)
+    if (b->recap[i] < nb)
+      {
+	nb = b->recap[i];
+	j = i + 1;
+      }
+  return (j);
 }
 
 int				getArmy(char* arg)
