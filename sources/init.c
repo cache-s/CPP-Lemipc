@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 10:34:35 2015 Jordan Chazottes
+** Last update Wed Mar  4 11:48:23 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -44,31 +44,50 @@ t_battlefield*				initBattlefield()
       memcpy(addr, &b, sizeof(b));
     }
   addr = shmat(shm_id, NULL, SHM_R | SHM_W);
-  shmctl(shm_id, IPC_RMID, NULL);
+  /*shmctl(shm_id, IPC_RMID, NULL); A METTRE A LA MORT DU DENIER PLAYER */
   return ((t_battlefield*)addr);
 }
 
-t_warrior*			initWarrior(int army, t_battlefield *t)
+void				initWarriorPos(t_warrior **w, void *addr)
 {
-  t_warrior			*w;
   int				r_x;
   int				r_y;
+  struct sembuf			sops;
 
   r_x = -1;
+  sops.sem_num = 0;
+  sops.sem_flg = 0;
+  sops.sem_op = -1;
+  semop((*w)->shm_id, &sops, 1);
+  while (r_x == -1)
+    {
+      r_x = (rand() % X);
+      r_y = (rand() % Y);
+      if (((t_battlefield*)addr)->battlefield[r_x][r_y] != '.')
+	r_x = -1;
+    }
+  sops.sem_op = 1;
+  semop((*w)->shm_id, &sops, 1);
+  (*w)->posX = r_x;
+  (*w)->posY = r_y;
+}
+
+t_warrior*			initWarrior(int army)
+{
+  t_warrior			*w;
+  key_t				key;
+  void				*addr;
+
+  key = ftok("/dev", 0);
   w = malloc(sizeof(*w));
+
   if (w != NULL)
     {
       w->id = 0;
       w->state = ALIVE;
-      while (r_x == -1)
-	{
-	  r_x = (rand() % X);
-	  r_y = (rand() % Y);
-	  if (t->battlefield[r_x][r_y] != '.')
-	    r_x = -1;
-	}
-      w->posX = r_x;
-      w->posY = r_y;
+      w->shm_id = shmget(key, sizeof(t_battlefield), SHM_R | SHM_W);
+      addr = shmat(w->shm_id, NULL, SHM_R | SHM_W);
+      initWarriorPos(&w, addr);
       w->army = army;
     }
   else

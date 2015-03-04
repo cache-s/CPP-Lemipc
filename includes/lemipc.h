@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 10:38:43 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 11:09:14 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -50,6 +50,7 @@ typedef	struct			s_warrior
   int				posX;
   int				posY;
   int				army;
+  int				shm_id;
 }				t_warrior;
 
 /* PROTOTYPES */
@@ -62,8 +63,8 @@ int				start(int);
 void				showBattlefield(t_battlefield*);
 void				showWarrior(t_warrior*);
 t_battlefield*			initBattlefield();
-t_warrior*			initWarrior(int, t_battlefield*);
-void				loop(t_battlefield*, t_warrior*);
+t_warrior*			initWarrior(int);
+void				loop(t_warrior*);
 int				getArmy(char*);
 int				pickArmy();
 void				algo(t_battlefield*, t_warrior*);
