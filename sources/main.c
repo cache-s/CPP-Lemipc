@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:37:11 2015 Jordan Chazottes
-** Last update Tue Mar  3 20:26:41 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 10:24:38 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -33,6 +33,7 @@ int				main(int ac, char** av)
 
   if (ac > 2)
     return (usage());
+  srand(time(NULL));
   if (ac == 1)
     return (start(pickArmy()));
   if (ac == 2 && checkHelp(av[1]) == 0)

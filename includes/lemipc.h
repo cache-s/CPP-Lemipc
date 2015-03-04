@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 09:28:32 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 10:32:20 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -21,7 +21,7 @@
 # include			<sys/shm.h>
 # include			<sys/sem.h>
 # include			<unistd.h>
-
+# include			<time.h>
 /* DEFINES */
 
 # define			X	50
@@ -62,7 +62,7 @@ int				start(int);
 void				showBattlefield(t_battlefield*);
 void				showWarrior(t_warrior*);
 t_battlefield*			initBattlefield();
-t_warrior*			initWarrior(int);
+t_warrior*			initWarrior(int, t_battlefield*);
 void				loop(t_battlefield*, t_warrior*);
 int				getArmy(char*);
 int				pickArmy();
