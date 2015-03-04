@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Tue Mar  3 19:38:09 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 10:08:23 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -16,7 +16,6 @@ void				loop(t_battlefield *b, t_warrior *w)
   struct sembuf                 sops;
   key_t                         key;
 
-  (void)b;
   key = ftok("/dev", 0);
   if ((sem_id = semget(key, 1, SHM_R | SHM_W)) == -1)
     {
@@ -30,23 +29,10 @@ void				loop(t_battlefield *b, t_warrior *w)
       sops.sem_num = 0;
       sops.sem_flg = 0;
       sops.sem_op = -1;
-      printf("Before %d\n", semctl(sem_id, 0, GETVAL));
       semop(sem_id, &sops, 1);
-      sleep(2);
-      printf("After %d\n", semctl(sem_id, 0, GETVAL));
+      algo(b, w);
+      showBattlefield(b);
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
-      printf("After add %d\n\n", semctl(sem_id, 0, GETVAL));
     }
 }
-
-/*
-t_warrior                   *p; 
-while (p->state != DEAD || team victory) 
-  { 
-    wait signal : get "mutex"                                                                                  
-      on change la pos                                          
-      on catch les message msgq                                                       
-      }
-isLast() ? destroyIPCS
-*/
