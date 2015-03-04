@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 20:28:39 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 09:28:32 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -40,6 +40,7 @@ typedef	enum			State
 typedef	struct			s_battlefield
 {
   char				battlefield[X][Y];
+  int				recap[4];
 }				t_battlefield;
 
 typedef	struct			s_warrior

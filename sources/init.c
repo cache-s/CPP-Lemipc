@@ -5,10 +5,28 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Tue Mar  3 19:43:19 2015 Sebastien Cache-Delanos
+** Last update Wed Mar  4 09:36:10 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
+
+t_battlefield				initStruct(t_battlefield b)
+{
+  int				i;
+  int				j;
+
+  i = -1;
+  while (++i < X)
+    {
+      j = -1;
+      while (++j < Y)
+	b.battlefield[i][j] = '.';
+    }
+  i = -1;
+  while (++i < 5)
+    b.recap[i] = 0;
+  return (b);
+}
 
 t_battlefield*				initBattlefield()
 {
@@ -16,18 +34,12 @@ t_battlefield*				initBattlefield()
   key_t				key;
   int				shm_id;
   void				*addr;
-  int				i;
-  int				j;
 
-  i = 0;
-  j = 0;
   key = ftok("/dev", 0);
   printf("Key = %d\n", key);
   if ((shm_id = shmget(key, sizeof(b), SHM_R | SHM_W)) == -1)
     {
-      for (i = 0; i < X; ++i)
-	for (j = 0; j < Y; ++j)
-	  b.battlefield[i][j] = '.';
+      b = initStruct(b);
       shm_id = shmget(key, sizeof(b), IPC_CREAT | SHM_R  | SHM_W);
       printf("Created shm segment %d\n", shm_id);
       addr = shmat(shm_id, NULL, SHM_R | SHM_W);
