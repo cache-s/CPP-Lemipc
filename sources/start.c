@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 19:32:25 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 18:31:40 2015 Jordan Chazottes
+** Last update Thu Mar  5 12:01:31 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -13,8 +13,7 @@
 int				start(int army)
 {
   t_warrior			*w;
-  (void) army;
-  (void) w;
+
   if (initBattlefield() == NULL)
     return (-1);
   if ((w = initWarrior(army)) == NULL)

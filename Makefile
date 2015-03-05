@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Wed Mar  4 10:09:22 2015 Sebastien Cache-Delanos
+## Last update Thu Mar  5 11:19:10 2015 Sebastien Cache-Delanos
 ##
 
 NAME	= lemipc
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	@echo ' '
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	$(CC) -lpthread -o $@ $^
+	$(CC) -o $@ $^
 	@echo 'Finished building target: $@'
 	@echo ' '
 

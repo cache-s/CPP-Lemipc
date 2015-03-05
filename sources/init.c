@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Wed Mar  4 18:30:54 2015 Jordan Chazottes
+** Last update Wed Mar  4 18:38:07 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -75,9 +75,8 @@ void				initWarriorPos(t_warrior **w, void *addr)
 	r_x = -1;
       else
 	((t_battlefield*)addr)->battlefield[r_x][r_y] = (*w)->army + 48;
-      showBattlefield((*w));
     }
-  
+  ((t_battlefield*)addr)->recap[(*w)->army - 1] += 1;
   sops.sem_op = 1;
   semop((*w)->shm_id, &sops, 1);
   (*w)->posX = r_x;
@@ -89,10 +88,9 @@ t_warrior*			initWarrior(int army)
   t_warrior			*w;
   key_t				key;
   void				*addr;
-  (void)addr;
+
   key = ftok("/dev", 0);
   w = malloc(sizeof(*w));
-
   if (w != NULL)
     {
       w->id = 0;

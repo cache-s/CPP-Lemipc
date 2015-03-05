@@ -1,0 +1,13 @@
+#!/bin/sh
+
+for ((i = 0; i < 20; ++i))
+do
+	./lemipc --army=1 &
+done
+
+sleep 0.3
+
+for ((i = 0; i < 20; ++i))
+do
+	./lemipc --army=2 &
+done

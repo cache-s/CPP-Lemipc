@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Mon Mar  2 16:54:39 2015 Jordan Chazottes
-** Last update Wed Mar  4 17:09:55 2015 Jordan Chazottes
+** Last update Thu Mar  5 12:40:51 2015 Sebastien Cache-Delanos
 */
 
 #include		"lemipc.h"
@@ -28,9 +28,9 @@ void			showBattlefield(t_warrior* w)
 	}
       printf("\n");
     }
-  i = -1;
-  while (++i < 5)
-    printf("Army number %d : %d Warriors\n", i + 1, ((t_battlefield*)addr)->recap[i]);
+  printf("\n");
+  //  while (++i < 5)
+  //    printf("Army number %d : %d Warriors\n", i + 1, ((t_battlefield*)addr)->recap[i]);
 }
 
 void			showWarrior(t_warrior* w)

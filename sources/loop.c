@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Wed Mar  4 18:09:19 2015 Jordan Chazottes
+** Last update Thu Mar  5 13:07:32 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -22,10 +22,10 @@ void				loop(t_warrior *w)
     {
       init_sembuf(&sops, 1);
       semop(sem_id, &sops, 1);
-      showBattlefield(w);
-      showWarrior(w);
-      /* algo(b, w); */
+      algo(w);
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
     }
+  printf("You died !\n");
+  free(w);
 }
