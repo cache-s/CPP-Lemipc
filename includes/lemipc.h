@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Thu Mar  5 13:07:10 2015 Sebastien Cache-Delanos
+** Last update Thu Mar  5 13:18:33 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -59,6 +59,8 @@ int				main(int, char**);
 int				checkNb(char*);
 int				checkHelp(char*);
 int				checkUsage(char*);
+int				checkAlone(t_warrior*, void*);
+int				checkDeath(t_warrior*, void*);
 int				start(int);
 void				showBattlefield(t_warrior* w);
 void				showWarrior(t_warrior*);

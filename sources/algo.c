@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Wed Mar  4 10:08:32 2015 Sebastien Cache-Delanos
-** Last update Thu Mar  5 13:10:09 2015 Sebastien Cache-Delanos
+** Last update Thu Mar  5 13:17:29 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -15,24 +15,6 @@ typedef struct			s_target
   int				x;
   int				y;
 }				t_target;
-
-int				isNotAlone(t_warrior* w, void* addr)
-{
-  int				i;
-
-  i = 0;
-  while (i != 5)
-    {
-      if (i != w->army - 1)
-	{
-	  if (((t_battlefield*)addr)->recap[i] > 0)
-	    return (0);
-	}
-      ++i;
-    }
-  printf("ALONE\n");
-  return (-1);
-}
 
 t_target			getPos(t_warrior *w, void* addr)
 {
@@ -92,36 +74,6 @@ void				chaseTarget(t_warrior* w, void* addr, t_target t)
     }
 }
 
-int				checkDeath(t_warrior* w, void* addr)
-{
-  char				enemy[4] = ".";
-  int				i;
-  int				j;
-
-  i = 0;
-  if (w->posX - 1 >= 0)
-    enemy[0] = ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY];
-  if (w->posX + 1 <= X)
-    enemy[1] = ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY];
-  if (w->posY - 1 >= 0)
-    enemy[2] = ((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1];
-  if (w->posY + 1 <= Y)
-    enemy[3] = ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1];
-  while (i != 4)
-    {
-      j = 0;
-      while (enemy[i] != '.' && enemy[i] != w->army + 48 && j != 4)
-	{
-	  if (j != i)
-	    if (enemy[i] == enemy[j])
-	      return (0);
-	  ++j;
-	}
-      ++i;
-    }
-  return (-1);
-}
-
 void                            move(t_warrior *w)
 {
   void				*addr;
@@ -140,7 +92,7 @@ void                            move(t_warrior *w)
       ((t_battlefield*)addr)->recap[w->army - 1] -= 1;
       return;
     }
-  if (isNotAlone(w, addr) == 0)
+  if (checkAlone(w, addr) == 0)
     {
       t = getPos(w, addr);
       chaseTarget(w, addr, t);
@@ -150,8 +102,6 @@ void                            move(t_warrior *w)
 
 void				algo(t_warrior* w)
 {
-  showBattlefield(w);
   move(w);
   sleep(1);
-  showBattlefield(w);
 }
