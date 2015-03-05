@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Thu Mar  5 13:17:46 2015 Sebastien Cache-Delanos
+** Last update Thu Mar  5 16:59:29 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -20,12 +20,13 @@ void				loop(t_warrior *w)
   sem_id = semget(key, 1, SHM_R | SHM_W);
   while (w->state != DEAD)
     {
-      init_sembuf(&sops, 1);
+      init_sembuf(&sops, -1);
       semop(sem_id, &sops, 1);
       algo(w);
-      showBattlefield(w);
+      //      showBattlefield(w);
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
+      sleep(1);
     }
   printf("You died !\n");
   free(w);

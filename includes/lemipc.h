@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Thu Mar  5 13:18:33 2015 Sebastien Cache-Delanos
+** Last update Thu Mar  5 15:39:36 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -36,6 +36,12 @@ typedef	enum			State
   }				State;
 
 /* STRUCTURE */
+
+typedef struct			s_target
+{
+  int				x;
+  int				y;
+}				t_target;
 
 typedef	struct			s_battlefield
 {
