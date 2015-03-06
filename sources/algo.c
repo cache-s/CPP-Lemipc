@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Wed Mar  4 10:08:32 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 12:21:33 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 18:52:03 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -39,25 +39,19 @@ t_target			getPos(t_warrior *w, void* addr)
   return (t);
 }
 
-void				randomMove(t_warrior* w, void* addr, t_target t)
+void				randomMove(t_warrior* w, void* addr)
 {
-  if (w->posX == t.x)
-    {
-      if (((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1] == '.')
-	w->posY++;
-      else
-	if (((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1] == '.')
-	  w->posY--;
-    }
+  if (w->posY + 1 < Y && ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1] == '.')
+    w->posY++;
   else
-    if (w->posY == t.y)
-      {
-	if (((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY] == '.')
-	  w->posX++;
-	else
-	  if (((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY] == '.')
-	    w->posX--;
-      }
+    if (w->posY - 1 >= 0 && ((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1] == '.')
+      w->posY--;
+    else
+      if (w->posX + 1 < X && ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY] == '.')
+	w->posX++;
+      else
+	if (w->posX - 1 >= 0 && ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY] == '.')
+	  w->posX--;
 }
 
 void				chaseTarget(t_warrior* w, void* addr, t_target t)
@@ -69,28 +63,26 @@ void				chaseTarget(t_warrior* w, void* addr, t_target t)
     {
       if (w->posX > t.x)
 	{
-	  if (w->posX - 1 >= 0 &&
-	      ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY] == '.')
+	  if (w->posX - 1 >= 0 && ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY] == '.')
 	    w->posX--;
 	}
       else
-	if (w->posX + 1 <= X &&
-	    ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY] == '.')
+	if (w->posX + 1 < X && ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY] == '.')
 	  w->posX++;
+	else
+	  randomMove(w, addr);
       return;
     }
   if (w->posY < t.y)
     {
-      if (w->posY + 1 <= Y &&
-	  ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1] == '.')
+      if (w->posY + 1 < Y && ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1] == '.')
 	w->posY++;
     }
   else
-    if (w->posY - 1 >= 0 &&
-	((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1] == '.')
+    if (w->posY - 1 >= 0 && ((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1] == '.')
       w->posY--;
     else
-      randomMove(w, addr, t);
+      randomMove(w, addr);
 }
 
 void				algo(t_warrior *w, void* addr)

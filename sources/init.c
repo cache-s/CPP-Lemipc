@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 12:31:45 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 18:49:02 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -25,14 +25,6 @@ t_battlefield				initStruct(t_battlefield b)
   i = -1;
   while (++i < 5)
     b.recap[i] = 0;
-  i = -1;
-  while (++i < X)
-    {
-      j = -1;
-      while (++j < Y)
-	printf("%c", b.battlefield[i][j]);
-      printf("\n");
-    }
   return (b);
 }
 

@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Fri Mar  6 12:32:25 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 18:59:48 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -30,7 +30,6 @@ void				loop(t_warrior *w)
   sleep(1);
   while (w->state != DEAD && checkAlone(w, addr) == 0)
     {
-      showWarrior(w);
       usleep(250000);
       sops.sem_op = -1;
       semop(sem_id, &sops, 1);
@@ -43,6 +42,7 @@ void				loop(t_warrior *w)
   else
     {
       printf("You won !\n");
+      sleep(1);
       semctl(sem_id, 0, IPC_RMID, 0);
       shmctl(w->shm_id, IPC_RMID, NULL);
     }
