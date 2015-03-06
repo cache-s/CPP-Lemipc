@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 11:33:58 2015 Jordan Chazottes
+** Last update Fri Mar  6 12:21:50 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -71,14 +71,14 @@ int				checkUsage(char*);
 int				checkAlone(t_warrior*, void*);
 int				checkDeath(t_warrior*, void*);
 int				start(int);
-void				showBattlefield(t_warrior* w);
+void				showBattlefield(t_warrior*);
 void				showWarrior(t_warrior*);
 t_battlefield*			initBattlefield();
 t_warrior*			initWarrior(int);
 void				loop(t_warrior*);
 int				getArmy(char*);
 int				pickArmy();
-void				algo(t_warrior*);
+void				algo(t_warrior*, void*);
 void				move(t_warrior*);
 struct sembuf			*init_sembuf(struct sembuf*, int);
 

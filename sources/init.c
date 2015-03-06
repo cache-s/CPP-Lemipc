@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 10:35:10 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 12:31:45 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -52,7 +52,6 @@ t_battlefield*				initBattlefield()
       memcpy(addr, &b, sizeof(b));
     }
   addr = shmat(shm_id, NULL, SHM_R | SHM_W);
-  /*shmctl(shm_id, IPC_RMID, NULL); A METTRE A LA MORT DU DENIER PLAYER */
   return ((t_battlefield*)addr);
 }
 

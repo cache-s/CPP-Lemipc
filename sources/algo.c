@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Wed Mar  4 10:08:32 2015 Sebastien Cache-Delanos
-** Last update Thu Mar  5 16:31:11 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 12:21:33 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -93,9 +93,8 @@ void				chaseTarget(t_warrior* w, void* addr, t_target t)
       randomMove(w, addr, t);
 }
 
-void				algo(t_warrior *w)
+void				algo(t_warrior *w, void* addr)
 {
-  void				*addr;
   t_target			t;
 
   addr = shmat(w->shm_id, NULL, SHM_R | SHM_W);
