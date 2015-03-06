@@ -1,0 +1,53 @@
+#!/bin/sh
+
+./lemipc --army=1 & ./lemipc --army=2 & ./lemipc --army=3 & ./lemipc --army=4 &
+
+./disp &
+
+sleep 2
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=1 &
+done
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=2 &
+done
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=3 &
+done
+
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=4 &
+done
+
+sleep 5
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=1 &
+done
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=2 &
+done
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=3 &
+done
+
+
+for ((i = 0; i < 5; ++i))
+do
+	./lemipc --army=4 &
+done
+
+sleep 5
