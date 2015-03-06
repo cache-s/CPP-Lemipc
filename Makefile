@@ -5,10 +5,12 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Thu Mar  5 11:19:10 2015 Sebastien Cache-Delanos
+## Last update Fri Mar  6 11:37:29 2015 Jordan Chazottes
 ##
 
 NAME	= lemipc
+
+D_NAME	= disp
 
 SRCS	= ./sources/main.c			\
 	  ./sources/check.c			\
@@ -21,13 +23,17 @@ SRCS	= ./sources/main.c			\
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS	= -g -W -Wall -Wextra -Werror -I ./includes
+D_SRCS	= ./display/main.c			\
+
+D_OBJS	= $(D_SRCS:.c=.o)
+
+CFLAGS	= -W -Wall -Wextra -Werror -I ./includes
 
 CC	= gcc
 
 RM	= rm -rf
 
-all: $(NAME)
+all: $(NAME) display
 
 $(NAME): $(OBJS)
 	@echo ' '
@@ -45,12 +51,22 @@ $(NAME): $(OBJS)
 	@echo 'Finished building: $<'
 	@echo ' '
 
+display: $(D_OBJS)
+	@echo ' '
+	@echo 'Building target: $@'
+	@echo 'Invoking: GCC C Linker'
+	$(CC) -lSDLmain -lSDL -lSDL_image -o $(D_NAME) $^
+	@echo 'Finished building target: $@'
+	@echo ' '
+
 clean:
 	$(RM) $(OBJS)
+	$(RM) $(D_OBJS)
 	@find ./ -name '*~' -exec rm '{}' \;
 	@find ./ -name '*#' -exec rm '{}' \;
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(D_NAME)
 
 re: fclean all

@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Thu Mar  5 15:39:36 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 11:33:58 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -22,10 +22,13 @@
 # include			<sys/sem.h>
 # include			<unistd.h>
 # include			<time.h>
+# include			<SDL/SDL.h>
+# include			<SDL/SDL_image.h>
+
 /* DEFINES */
 
 # define			X	50
-# define			Y	100
+# define			Y	30
 
 /* ENUM */
 
