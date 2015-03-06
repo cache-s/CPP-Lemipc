@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 12:30:13 2015 Jordan Chazottes
-** Last update Fri Mar  6 12:33:52 2015 Jordan Chazottes
+** Last update Fri Mar  6 19:50:06 2015 Jordan Chazottes
 */
 
 #include	"lemipc.h"
@@ -29,4 +29,5 @@ void		createRect(void *addr, int i, int j, SDL_Surface *screen)
   pos.x = i * 32;
   pos.y = j * 32;
   SDL_BlitSurface(rectangle, NULL, screen, &pos);
+  SDL_FreeSurface(rectangle);
 }

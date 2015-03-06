@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 18:49:02 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 19:30:30 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -20,7 +20,12 @@ t_battlefield				initStruct(t_battlefield b)
     {
       j = -1;
       while (++j < Y)
-	b.battlefield[i][j] = '.';
+	{
+	  if ((rand() % 100) < 95)
+	    b.battlefield[i][j] = '.';
+	  else
+	    b.battlefield[i][j] = 'X';
+	}
     }
   i = -1;
   while (++i < 5)

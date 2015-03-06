@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 12:43:00 2015 Jordan Chazottes
-** Last update Fri Mar  6 12:49:38 2015 Jordan Chazottes
+** Last update Fri Mar  6 19:15:49 2015 Jordan Chazottes
 */
 
 #include	"lemipc.h"
@@ -21,7 +21,7 @@ void		displayLoop(SDL_Surface *screen)
       i = 0;
       if ((addr = getShm()) == NULL || eventHandler() == 0)
         return;
-      SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format, 122, 122, 122));
+      resetBackground(addr, screen);
       while (i < X)
         {
           j = 0;

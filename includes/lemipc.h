@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 12:52:24 2015 Jordan Chazottes
+** Last update Fri Mar  6 19:15:18 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -88,5 +88,5 @@ void				displayLoop(SDL_Surface*);
 void				createSprite(void*, int, int, SDL_Surface*);
 void				createRect(void*, int, int, SDL_Surface*);
 void				applySurface(int, int, SDL_Surface*, SDL_Surface*, SDL_Rect*);
-
+void				resetBackground(void *, SDL_Surface*);
 #endif				/*LEMIPC_H_*/
