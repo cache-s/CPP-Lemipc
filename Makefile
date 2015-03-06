@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Fri Mar  6 12:46:04 2015 Jordan Chazottes
+## Last update Fri Mar  6 13:06:41 2015 Jordan Chazottes
 ##
 
 NAME	= lemipc
@@ -23,13 +23,13 @@ SRCS	= ./sources/main.c			\
 
 OBJS	= $(SRCS:.c=.o)
 
-D_SRCS	= ./display/main.c			\
-	  ./display/createSprite.c		\
-	  ./display/createRect.c		\
-	  ./display/eventHandler.c		\
-	  ./display/getShm.c			\
-	  ./display/applySurface.c		\
-	  ./display/displayLoop.c		\
+D_SRCS	= ./sources/display/main.c		\
+	  ./sources/display/createSprite.c	\
+	  ./sources/display/createRect.c	\
+	  ./sources/display/eventHandler.c	\
+	  ./sources/display/getShm.c		\
+	  ./sources/display/applySurface.c	\
+	  ./sources/display/displayLoop.c	\
 
 D_OBJS	= $(D_SRCS:.c=.o)
 
