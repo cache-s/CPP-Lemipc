@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 12:21:50 2015 Sebastien Cache-Delanos
+** Last update Fri Mar  6 12:52:24 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -71,7 +71,7 @@ int				checkUsage(char*);
 int				checkAlone(t_warrior*, void*);
 int				checkDeath(t_warrior*, void*);
 int				start(int);
-void				showBattlefield(t_warrior*);
+void				showBattlefield(t_warrior* w);
 void				showWarrior(t_warrior*);
 t_battlefield*			initBattlefield();
 t_warrior*			initWarrior(int);
@@ -81,5 +81,12 @@ int				pickArmy();
 void				algo(t_warrior*, void*);
 void				move(t_warrior*);
 struct sembuf			*init_sembuf(struct sembuf*, int);
+
+void				*getShm();
+int				eventHandler();
+void				displayLoop(SDL_Surface*);
+void				createSprite(void*, int, int, SDL_Surface*);
+void				createRect(void*, int, int, SDL_Surface*);
+void				applySurface(int, int, SDL_Surface*, SDL_Surface*, SDL_Rect*);
 
 #endif				/*LEMIPC_H_*/
