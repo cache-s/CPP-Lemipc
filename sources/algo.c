@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Wed Mar  4 10:08:32 2015 Sebastien Cache-Delanos
-** Last update Fri Mar  6 18:52:03 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 12:21:23 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -25,7 +25,8 @@ t_target			getPos(t_warrior *w, void* addr)
       while (++j < Y)
 	{
 	  if (((t_battlefield*)addr)->battlefield[i][j] != w->army + 48 &&
-	      ((t_battlefield*)addr)->battlefield[i][j] != '.')
+	      ((t_battlefield*)addr)->battlefield[i][j] >= '1' &&
+	      ((t_battlefield*)addr)->battlefield[i][j] <= '5')
 	    {
 	      if (abs((w->posX - i) + (w->posY - j)) < distance)
 		{

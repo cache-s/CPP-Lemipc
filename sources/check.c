@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:11:18 2015 Sebastien Cache-Delanos
-** Last update Thu Mar  5 13:17:09 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 12:24:38 2015 Sebastien Cache-Delanos
 */
 
 #include			<string.h>
@@ -47,7 +47,7 @@ int				checkDeath(t_warrior* w, void* addr)
   while (++i != 4)
     {
       j = -1;
-      while (enemy[i] != '.' && enemy[i] != w->army + 48 && ++j != 4)
+      while (enemy[i] != '.' && enemy[i] != 'X' && enemy[i] != w->army + 48 && ++j != 4)
 	{
 	  if (j != i)
 	    if (enemy[i] == enemy[j])
