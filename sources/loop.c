@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Fri Mar  6 18:59:48 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 12:42:55 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -27,7 +27,8 @@ void				loop(t_warrior *w)
     }
   sops.sem_num = 0;
   sops.sem_flg = 0;
-  sleep(1);
+  while (checkAlone(w, addr) != 0)
+    sleep(1);
   while (w->state != DEAD && checkAlone(w, addr) == 0)
     {
       usleep(250000);
