@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Sat Mar  7 12:42:55 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 12:49:02 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -38,11 +38,8 @@ void				loop(t_warrior *w)
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
     }
-  if (w->state == DEAD)
-    printf("You died !\n");
-  else
+  if (w->state != DEAD)
     {
-      printf("You won !\n");
       sleep(1);
       semctl(sem_id, 0, IPC_RMID, 0);
       shmctl(w->shm_id, IPC_RMID, NULL);
