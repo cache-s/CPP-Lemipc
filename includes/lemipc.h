@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 13:23:22 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 13:31:44 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -50,6 +50,7 @@ typedef	struct			s_battlefield
 {
   char				battlefield[X][Y];
   int				recap[4];
+  int				winner;
 }				t_battlefield;
 
 typedef	struct			s_warrior

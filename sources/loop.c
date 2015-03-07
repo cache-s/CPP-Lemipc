@@ -5,10 +5,34 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Sat Mar  7 12:49:02 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 13:38:56 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
+
+void	loop2(t_warrior* w, void* addr, struct sembuf sops, int sem_id)
+{
+  while (w->state != DEAD && checkAlone(w, addr) == 0)
+    {
+      usleep(250000);
+      sops.sem_op = -1;
+      semop(sem_id, &sops, 1);
+      algo(w, addr);
+      sops.sem_op = 1;
+      semop(sem_id, &sops, 1);
+    }
+  if (w->state != DEAD)
+    {
+      sops.sem_op = -1;
+      semop(sem_id, &sops, 1);
+      ((t_battlefield*)addr)->winner = w->army;
+      sops.sem_op = 1;
+      semop(sem_id, &sops, 1);
+      sleep(1);
+      semctl(sem_id, 0, IPC_RMID, 0);
+      shmctl(w->shm_id, IPC_RMID, NULL);
+    }
+}
 
 void				loop(t_warrior *w)
 {
@@ -29,20 +53,6 @@ void				loop(t_warrior *w)
   sops.sem_flg = 0;
   while (checkAlone(w, addr) != 0)
     sleep(1);
-  while (w->state != DEAD && checkAlone(w, addr) == 0)
-    {
-      usleep(250000);
-      sops.sem_op = -1;
-      semop(sem_id, &sops, 1);
-      algo(w, addr);
-      sops.sem_op = 1;
-      semop(sem_id, &sops, 1);
-    }
-  if (w->state != DEAD)
-    {
-      sleep(1);
-      semctl(sem_id, 0, IPC_RMID, 0);
-      shmctl(w->shm_id, IPC_RMID, NULL);
-    }
+  loop2(w, addr, sops, sem_id);
   free(w);
 }
