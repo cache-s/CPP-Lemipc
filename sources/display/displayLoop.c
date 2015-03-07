@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 12:43:00 2015 Jordan Chazottes
-** Last update Fri Mar  6 19:15:49 2015 Jordan Chazottes
+** Last update Sat Mar  7 12:58:22 2015 Jordan Chazottes
 */
 
 #include	"lemipc.h"
@@ -34,5 +34,6 @@ void		displayLoop(SDL_Surface *screen)
           ++i;
         }
       SDL_Flip(screen);
+      usleep(200000);
     }
 }

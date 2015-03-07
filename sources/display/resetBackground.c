@@ -5,17 +5,17 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Fri Mar  6 19:03:46 2015 Jordan Chazottes
-** Last update Fri Mar  6 19:45:27 2015 Jordan Chazottes
+** Last update Fri Mar  6 20:10:38 2015 Jordan Chazottes
 */
 
 #include	"lemipc.h"
 
 void		resetBackground(void *addr, SDL_Surface *screen)
 {
-  SDL_Surface	*bg;
-  SDL_Rect	clip[2];
   int		i;
   int		j;
+  SDL_Rect	clip[2];
+  SDL_Surface	*bg;
 
   i = 0;
   bg = IMG_Load("images/env.png");
@@ -24,7 +24,6 @@ void		resetBackground(void *addr, SDL_Surface *screen)
   clip[0].w = clip[1].w = 32;
   clip[0].h = clip[1].h = 32;
   clip[1].y = 32;
-
   while (i < X)
     {
       j = 0;

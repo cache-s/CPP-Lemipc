@@ -2,10 +2,6 @@
 
 ./lemipc --army=1 & ./lemipc --army=2 & ./lemipc --army=3 &
 
-./disp &
-
-sleep 2
-
 for ((i = 0; i < 10; i += 1))
 do
     ./lemipc --army=1 &
