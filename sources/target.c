@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Sat Mar  7 13:17:14 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 14:53:20 2015 Jordan Chazottes
+** Last update Sat Mar  7 17:22:05 2015 Sebastien Cache-Delanos
 */
 
 #include		"lemipc.h"
@@ -19,21 +19,21 @@ t_target		getTarget(t_warrior *w, void* addr)
  
   distance = X * Y;
   i = -1;
+  t.x = X / 2;
+  t.y = Y / 2;
   while (++i < X)
     {
       j = -1;
       while (++j < Y)
-	{
-	  if (((t_battlefield*)addr)->battlefield[i][j] != w->army + 48 &&
-	      ((t_battlefield*)addr)->battlefield[i][j] >= '1' &&
-	      ((t_battlefield*)addr)->battlefield[i][j] <= '5')
-	    if (abs((w->posX - i) + (w->posY - j)) < distance)
-	      {
-                t.x = i;
-                t.y = j;
-		distance = abs((w->posX - i) + (w->posY - j));
-	      }
-	}
+	if (((t_battlefield*)addr)->battlefield[i][j] != w->army + 48 &&
+	    ((t_battlefield*)addr)->battlefield[i][j] != 'X' &&
+	    ((t_battlefield*)addr)->battlefield[i][j] != '.')
+	  if (abs((w->posX - i) + (w->posY - j)) < distance)
+	    {
+	      t.x = i;
+	      t.y = j;
+	      distance = abs((w->posX - i) + (w->posY - j));
+	    }
     }
   return (t);
 }

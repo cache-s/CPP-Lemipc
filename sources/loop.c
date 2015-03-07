@@ -5,10 +5,24 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Sat Mar  7 13:38:56 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 18:42:59 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
+
+int	lastPlayer(void* addr)
+{
+  int	i;
+
+  i = 0;
+  while (i < 5)
+    {
+      if (((t_battlefield*)addr)->recap[i] > 0)
+	return (-1);
+      ++i;
+    }
+  return (0);
+}
 
 void	loop2(t_warrior* w, void* addr, struct sembuf sops, int sem_id)
 {
@@ -21,14 +35,14 @@ void	loop2(t_warrior* w, void* addr, struct sembuf sops, int sem_id)
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
     }
-  if (w->state != DEAD)
+  ((t_battlefield*)addr)->recap[w->army - 1] -= 1;
+  if (lastPlayer(addr) == 0)
     {
       sops.sem_op = -1;
       semop(sem_id, &sops, 1);
       ((t_battlefield*)addr)->winner = w->army;
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
-      sleep(1);
       semctl(sem_id, 0, IPC_RMID, 0);
       shmctl(w->shm_id, IPC_RMID, NULL);
     }

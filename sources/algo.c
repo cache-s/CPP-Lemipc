@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Wed Mar  4 10:08:32 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 14:51:51 2015 Jordan Chazottes
+** Last update Sat Mar  7 18:47:39 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -38,7 +38,6 @@ void				algo(t_warrior *w, void* addr)
   if (checkDeath(w, addr) == 0)
     {
       w->state = DEAD;
-      ((t_battlefield*)addr)->recap[w->army - 1] -= 1;
       return;
     }
   if (checkAlone(w, addr) == 0)
