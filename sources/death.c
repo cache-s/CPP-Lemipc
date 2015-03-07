@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Sat Mar  7 13:13:00 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 13:25:53 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 14:41:01 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -32,23 +32,23 @@ int				checkDeath2(t_warrior* w, char* enemy)
  
 int				checkDeath(t_warrior* w, void* addr)
 {
-  char				enemy[8] = ".";
+  char				enemy[4] = ".";
 
-  if (w->posX - 1 >= 0)
+  if (w->posX - 1 >= 0) // GetHaut
     enemy[0] = ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY];
-  if (w->posX + 1 < X)
+  if (w->posX + 1 < X) // GetBas
     enemy[1] = ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY];
-  if (w->posY - 1 >= 0)
+  if (w->posY - 1 >= 0) // getGauche
     enemy[2] = ((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1];
-  if (w->posY + 1 < Y)
+  if (w->posY + 1 < Y) // getDroit
     enemy[3] = ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1];
-  if (w->posX - 1 >= 0 && w->posY + 1 < Y)
+  if (w->posX - 1 >= 0 && w->posY + 1 < Y) // getGaucheBas
     enemy[4] = ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY + 1];
-  if (w->posX + 1 <= X && w->posY + 1 < Y)
+  if (w->posX + 1 <= X && w->posY + 1 < Y) // getDroiteBas
     enemy[5] = ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY + 1];
-  if (w->posX + 1 < X && w->posY - 1 >= 0)
+  if (w->posX + 1 < X && w->posY - 1 >= 0) // getDroiteHaut
     enemy[6] = ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY - 1];
-  if (w->posX - 1 >= 0 && w->posY - 1 >= 0)
+  if (w->posX - 1 >= 0 && w->posY - 1 >= 0) // getGaucheHaut
     enemy[7] = ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY - 1];
   return (checkDeath2(w, enemy));
 }

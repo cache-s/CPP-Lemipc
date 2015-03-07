@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Sat Mar  7 13:21:41 2015 Sebastien Cache-Delanos
+## Last update Sat Mar  7 14:09:46 2015 Jordan Chazottes
 ##
 
 NAME	= lemipc
@@ -33,6 +33,8 @@ D_SRCS	= ./sources/display/main.c		\
 	  ./sources/display/applySurface.c	\
 	  ./sources/display/displayLoop.c	\
 	  ./sources/display/resetBackground.c	\
+	  ./sources/display/checkWin.c		\
+	  ./sources/display/displayWinScreen.c	\
 
 D_OBJS	= $(D_SRCS:.c=.o)
 
@@ -64,7 +66,7 @@ display: $(D_OBJS)
 	@echo ' '
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	$(CC) -lSDLmain -lSDL -lSDL_image -o $(D_NAME) $^
+	$(CC) -lSDLmain -lSDL -lSDL_image -lSDL_ttf -o $(D_NAME) $^
 	@echo 'Finished building target: $@'
 	@echo ' '
 

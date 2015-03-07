@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 13:31:44 2015 Sebastien Cache-Delanos
+** Last update Sat Mar  7 13:46:09 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -24,6 +24,7 @@
 # include			<time.h>
 # include			<SDL/SDL.h>
 # include			<SDL/SDL_image.h>
+# include			<SDL/SDL_ttf.h>
 
 /* DEFINES */
 
@@ -93,5 +94,7 @@ void				createSprite(void*, int, int, SDL_Surface*);
 void				createRect(void*, int, int, SDL_Surface*);
 void				applySurface(int, int, SDL_Surface*, SDL_Surface*, SDL_Rect*);
 void				resetBackground(void *, SDL_Surface*);
+int				checkWin(void*);
+void				displayWinScreen(int, SDL_Surface*);
 
 #endif				/*LEMIPC_H_*/
