@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 12:37:12 2015 Jordan Chazottes
+** Last update Sat Mar  7 13:23:22 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -81,6 +81,9 @@ int				pickArmy();
 void				algo(t_warrior*, void*);
 void				move(t_warrior*);
 struct sembuf			*init_sembuf(struct sembuf*, int);
+t_target			getTarget(t_warrior*, void*);
+void				chaseTarget(t_warrior*, void*, t_target);
+void				randomMove(t_warrior*, void*);
 
 void				*getShm();
 int				eventHandler();
