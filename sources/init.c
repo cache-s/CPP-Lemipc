@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 17:17:13 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 19:27:42 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -90,7 +90,6 @@ t_warrior*			initWarrior(int army)
   w = malloc(sizeof(*w));
   if (w != NULL)
     {
-      w->id = 0;
       w->state = ALIVE;
       w->shm_id = shmget(key, sizeof(t_battlefield), SHM_R | SHM_W);
       w->army = army;

@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 13:46:09 2015 Jordan Chazottes
+** Last update Sun Mar  8 19:27:52 2015 Sebastien Cache-Delanos
 */
 
 #ifndef				LEMIPC_H_
@@ -56,7 +56,6 @@ typedef	struct			s_battlefield
 
 typedef	struct			s_warrior
 {
-  int				id;
   State				state;
   int				posX;
   int				posY;

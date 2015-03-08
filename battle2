@@ -4,25 +4,18 @@
 
 for ((i = 0; i < 5; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=1 &
 done
 
 for ((i = 0; i < 5; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=2 &
 done
 
 for ((i = 0; i < 5; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=3 &
-done
-
-for ((i = 0; i < 5; i += 1))
-do
-    ./lemipc --army=4 &
-done
-
-for ((i = 0; i < 5; i += 1))
-do
-    ./lemipc --army=5 &
 done

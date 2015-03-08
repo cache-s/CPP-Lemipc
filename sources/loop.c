@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Sun Mar  8 19:02:28 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 19:13:37 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -67,7 +67,7 @@ void				loop(t_warrior *w)
   sops.sem_num = 0;
   sops.sem_flg = 0;
   while (checkAlone(w, addr) != 0)
-    sleep(1);
+    usleep(250000);
   loop2(w, addr, sops, sem_id);
   free(w);
 }
