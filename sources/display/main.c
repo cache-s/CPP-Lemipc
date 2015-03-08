@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Thu Mar  5 11:00:27 2015 Jordan Chazottes
-** Last update Sat Mar  7 13:47:55 2015 Jordan Chazottes
+** Last update Sun Mar  8 19:45:23 2015 Jordan Chazottes
 */
 
 #include	"lemipc.h"
@@ -17,11 +17,9 @@ int		main(int ac, char **av)
   (void)ac;
   (void)av;
 
-  SDL_Init(SDL_INIT_EVERYTHING);
-  TTF_Init();
-  SDL_putenv("SDL_VIDEODRIVER=directx"); 
-  screen = SDL_SetVideoMode(X*32, Y*32, 32, SDL_HWSURFACE | SDL_DOUBLEBUF);
-  SDL_WM_SetCaption("LemiPC", NULL);
+  if (my_SDL_Init(&screen) == -1)
+    return (-1);
+  SDL_WM_SetCaption("LemiPC", "My LemiPC");
   SDL_WM_SetIcon(IMG_Load("images/favicon.ico"), NULL);
   if ((addr = getShm()) == NULL || eventHandler() == 0)
     return (-1);

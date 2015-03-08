@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:12:35 2015 Sebastien Cache-Delanos
-** Last update Sun Mar  8 19:27:42 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 21:12:47 2015 Jordan Chazottes
 */
 
 #include			"lemipc.h"
@@ -21,7 +21,7 @@ t_battlefield				initStruct(t_battlefield b)
       j = -1;
       while (++j < Y)
 	{
-	  if ((rand() % 100) < 95)
+	  if ((rand() % 100) < 97)
 	    b.battlefield[i][j] = '.';
 	  else
 	    b.battlefield[i][j] = 'X';
@@ -60,10 +60,6 @@ void				initWarriorPos(t_warrior **w, void *addr)
   struct sembuf			sops;
 
   r_x = -1;
-  sops.sem_num = 0;
-  sops.sem_flg = 0;
-  sops.sem_op = -1;
-  semop((*w)->shm_id, &sops, 1);
   while (r_x == -1)
     {
       r_x = (rand() % X);
@@ -71,7 +67,13 @@ void				initWarriorPos(t_warrior **w, void *addr)
       if (((t_battlefield*)addr)->battlefield[r_x][r_y] != '.')
 	r_x = -1;
       else
-	((t_battlefield*)addr)->battlefield[r_x][r_y] = (*w)->army + 48;
+	{
+	  sops.sem_num = 0;
+	  sops.sem_flg = 0;
+	  sops.sem_op = -1;
+	  semop((*w)->shm_id, &sops, 1);
+	  ((t_battlefield*)addr)->battlefield[r_x][r_y] = (*w)->army + 48;
+	}
     }
   ((t_battlefield*)addr)->recap[(*w)->army - 1] += 1;
   sops.sem_op = 1;

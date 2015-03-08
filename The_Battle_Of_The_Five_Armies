@@ -1,0 +1,131 @@
+#!/bin/zsh                                                                                                           
+
+./lemipc --army=1 & ./lemipc --army=2 & ./lemipc --army=3 & ./lemipc --army=4 & ./lemipc --army=5 &
+
+./disp &
+
+for ((i = 0; i < 20; i++))
+do
+    sleep 0.05
+    ./lemipc --army=1 &
+done
+
+for ((i = 0; i < 20; i++))
+do
+    sleep 0.05
+    ./lemipc --army=2 &
+done
+
+for ((i = 0; i < 20; i++))
+do
+    sleep 0.05
+    ./lemipc --army=3 &
+done
+
+for ((i = 0; i < 20; i++))
+do
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+for ((i = 0; i < 20; i++))
+do
+    sleep 0.05
+    ./lemipc --army=5 &
+done
+
+sleep 5
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.05
+    ./lemipc --army=5 &
+done
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.05
+    ./lemipc --army=3 &
+done
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.05
+    ./lemipc --army=2 &
+done
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.05
+    ./lemipc --army=1 &
+done
+
+sleep 5
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=1 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=2 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=3 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=5 &
+done
+
+sleep 5
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=5 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=3 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=2 &
+done
+
+for ((i = 0; i < 40; i++))
+do
+    sleep 0.05
+    ./lemipc --army=1 &
+done

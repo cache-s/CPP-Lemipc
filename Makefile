@@ -5,7 +5,7 @@
 ## Login   <cache-_s@epitech.net>
 ## 
 ## Started on  Mon Mar  2 11:40:21 2015 Sebastien Cache-Delanos
-## Last update Sat Mar  7 14:09:46 2015 Jordan Chazottes
+## Last update Sun Mar  8 19:45:52 2015 Jordan Chazottes
 ##
 
 NAME	= lemipc
@@ -35,10 +35,11 @@ D_SRCS	= ./sources/display/main.c		\
 	  ./sources/display/resetBackground.c	\
 	  ./sources/display/checkWin.c		\
 	  ./sources/display/displayWinScreen.c	\
+	  ./sources/display/my_SDL_Init.c	\
 
 D_OBJS	= $(D_SRCS:.c=.o)
 
-CFLAGS	= -W -Wall -Wextra -Werror -I ./includes
+CFLAGS	= -g -W -Wall -Wextra -Werror -I ./includes
 
 CC	= gcc
 

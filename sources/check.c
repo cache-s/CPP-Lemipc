@@ -5,10 +5,8 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 12:11:18 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 13:13:43 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 13:33:38 2015 Jordan Chazottes
 */
-
-#include			<string.h>
 
 #include			"lemipc.h"
 

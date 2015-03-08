@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Mon Mar  2 11:40:49 2015 Sebastien Cache-Delanos
-** Last update Sun Mar  8 19:27:52 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 20:42:42 2015 Jordan Chazottes
 */
 
 #ifndef				LEMIPC_H_
@@ -50,7 +50,7 @@ typedef struct			s_target
 typedef	struct			s_battlefield
 {
   char				battlefield[X][Y];
-  int				recap[4];
+  int				recap[5];
   int				winner;
 }				t_battlefield;
 
@@ -95,5 +95,6 @@ void				applySurface(int, int, SDL_Surface*, SDL_Surface*, SDL_Rect*);
 void				resetBackground(void *, SDL_Surface*);
 int				checkWin(void*);
 void				displayWinScreen(int, SDL_Surface*);
+int				my_SDL_Init(SDL_Surface **);
 
 #endif				/*LEMIPC_H_*/

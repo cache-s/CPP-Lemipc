@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Sat Mar  7 13:38:59 2015 Jordan Chazottes
-** Last update Sat Mar  7 14:26:13 2015 Jordan Chazottes
+** Last update Sun Mar  8 19:48:07 2015 Jordan Chazottes
 */
 
 #include	"lemipc.h"
@@ -43,4 +43,5 @@ void		displayWinScreen(int i, SDL_Surface *screen)
   SDL_BlitSurface(txt, NULL, screen, &pos);
   SDL_Flip(screen);
   TTF_CloseFont(font);
+  sleep(5);
 }

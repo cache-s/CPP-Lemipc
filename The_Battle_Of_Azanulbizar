@@ -1,0 +1,31 @@
+#!/bin/sh
+
+./lemipc --army=3 & ./lemipc --army=4 &
+
+./disp &
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.05
+    ./lemipc --army=3 &
+done
+
+for ((i = 0; i < 50; i++))
+do
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+sleep 2
+
+for ((i = 0; i < 100; i++))
+do
+    sleep 0.01
+    ./lemipc --army=3 &
+done
+
+for ((i = 0; i < 15; i++))
+do
+    sleep 0.01
+    ./lemipc --army=4 &
+done
