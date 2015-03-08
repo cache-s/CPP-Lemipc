@@ -5,7 +5,7 @@
 ** Login   <chazot_a@epitech.net>
 ** 
 ** Started on  Tue Mar  3 11:25:04 2015 Jordan Chazottes
-** Last update Sat Mar  7 18:42:59 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 15:41:06 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
@@ -43,6 +43,7 @@ void	loop2(t_warrior* w, void* addr, struct sembuf sops, int sem_id)
       ((t_battlefield*)addr)->winner = w->army;
       sops.sem_op = 1;
       semop(sem_id, &sops, 1);
+      sleep(1);
       semctl(sem_id, 0, IPC_RMID, 0);
       shmctl(w->shm_id, IPC_RMID, NULL);
     }

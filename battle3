@@ -8,11 +8,13 @@ sleep 2
 
 for ((i = 0; i < 20; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=1 &
 done
 
 for ((i = 0; i < 20; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=4 &
 done
 
@@ -20,10 +22,12 @@ sleep 10
 
 for ((i = 0; i < 20; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=1 &
 done
 
 for ((i = 0; i < 20; i += 1))
 do
+    sleep 0.05
     ./lemipc --army=4 &
 done

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-./lemipc --army=1 & ./lemipc --army=2 & ./lemipc --army=3 & ./lemipc --army=4 &
+./lemipc --army=1 & ./lemipc --army=2 & ./lemipc --army=3 & ./lemipc --army=4 & ./lemipc --army=5 &
 
 sleep 2
 
@@ -10,44 +10,62 @@ sleep 2
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=1 &
+    sleep 0.05
+    ./lemipc --army=1 &
 done
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=2 &
+    sleep 0.05
+    ./lemipc --army=2 &
 done
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=3 &
+    sleep 0.05
+    ./lemipc --army=3 &
 done
-
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=4 &
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+for ((i = 0; i < 5; ++i))
+do
+    sleep 0.05
+    ./lemipc --army=5 &
 done
 
 sleep 10
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=1 &
+    sleep 0.05
+    ./lemipc --army=1 &
 done
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=2 &
+    sleep 0.05
+    ./lemipc --army=2 &
 done
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=3 &
+    sleep 0.05
+    ./lemipc --army=3 &
 done
-
 
 for ((i = 0; i < 5; ++i))
 do
-	./lemipc --army=4 &
+    sleep 0.05
+    ./lemipc --army=4 &
+done
+
+for ((i = 0; i < 5; ++i))
+do
+    sleep 0.05
+    ./lemipc --army=5 &
 done
