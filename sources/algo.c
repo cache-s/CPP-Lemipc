@@ -5,26 +5,26 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Wed Mar  4 10:08:32 2015 Sebastien Cache-Delanos
-** Last update Sun Mar  8 17:27:50 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 18:53:10 2015 Sebastien Cache-Delanos
 */
 
 #include			"lemipc.h"
 
 void				randomMove(t_warrior* w, void* addr)
 {
-  if (w->posY + 1 < Y &&
+  if ((w->posY + 1) < Y &&
       ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1] == '.')
     w->posY++;
   else
-    if (w->posY - 1 >= 0 &&
+    if ((w->posY - 1) >= 0 &&
 	((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1] == '.')
       w->posY--;
     else
-      if (w->posX + 1 < X &&
+      if ((w->posX + 1) < X &&
 	  ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY] == '.')
 	w->posX++;
       else
-	if (w->posX - 1 >= 0 &&
+	if ((w->posX - 1) >= 0 &&
 	    ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY] == '.')
 	  w->posX--;
 }

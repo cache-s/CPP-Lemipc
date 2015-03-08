@@ -5,7 +5,7 @@
 ** Login   <cache-_s@epitech.net>
 ** 
 ** Started on  Sat Mar  7 13:17:14 2015 Sebastien Cache-Delanos
-** Last update Sat Mar  7 17:22:05 2015 Sebastien Cache-Delanos
+** Last update Sun Mar  8 18:59:12 2015 Sebastien Cache-Delanos
 */
 
 #include		"lemipc.h"
@@ -42,38 +42,40 @@ void			chaseTarget2(t_warrior* w, void* addr, t_target t)
 {
   if (w->posY < t.y)
     {
-      if (w->posY + 1 < Y &&
+      if ((w->posY + 1) < Y &&
 	  ((t_battlefield*)addr)->battlefield[w->posX][w->posY + 1] == '.')
 	w->posY++;
     }
   else
-    if (w->posY - 1 >= 0 &&
+    if ((w->posY - 1) >= 0 &&
 	((t_battlefield*)addr)->battlefield[w->posX][w->posY - 1] == '.')
       w->posY--;
-    else
-      randomMove(w, addr);
 }
  
 void			chaseTarget(t_warrior* w, void* addr, t_target t)
 {
   int			dir;
+  int			x;
+  int			y;
 
   dir = (rand() % 2);
+  x = w->posX;
+  y = w->posY;
   if ((dir == 0 || w->posY == t.y) && w->posX != t.x)
     {
       if (w->posX > t.x)
 	{
-	  if (w->posX - 1 >= 0 &&
+	  if ((w->posX - 1) >= 0 &&
 	      ((t_battlefield*)addr)->battlefield[w->posX - 1][w->posY] == '.')
 	    w->posX--;
 	}
       else
-        if (w->posX + 1 < X &&
+        if ((w->posX + 1) < X &&
 	    ((t_battlefield*)addr)->battlefield[w->posX + 1][w->posY] == '.')
 	  w->posX++;
-        else
-	  randomMove(w, addr);
     }
   else
     chaseTarget2(w, addr, t);
+  if (w->posX == x && w->posY == y)
+    randomMove(w, addr);
 }
